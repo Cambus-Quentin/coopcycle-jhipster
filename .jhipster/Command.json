@@ -1,0 +1,57 @@
+{
+  "name": "Command",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "state",
+      "fieldType": "STATECMD",
+      "fieldValues": "PREPARATION,SUPPORTED,DELIVERY,DELIVERED"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "client",
+      "otherEntityRelationshipName": "command",
+      "relationshipName": "client"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "delivery",
+      "otherEntityRelationshipName": "command",
+      "relationshipName": "delivery"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "restaurant",
+      "otherEntityRelationshipName": "command",
+      "relationshipName": "restaurant"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "dish",
+      "otherEntityRelationshipName": "command",
+      "relationshipName": "dish",
+      "ownerSide": true
+    }
+  ],
+  "entityTableName": "command",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210327165812"
+}

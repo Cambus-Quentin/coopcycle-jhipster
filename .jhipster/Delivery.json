@@ -1,0 +1,45 @@
+{
+  "name": "Delivery",
+  "fields": [
+    {
+      "fieldName": "deliveryAddr",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength"],
+      "fieldValidateRulesMinlength": "3"
+    },
+    {
+      "fieldName": "distance",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "deliverer",
+      "otherEntityRelationshipName": "delivery",
+      "relationshipName": "deliverer"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "command",
+      "otherEntityRelationshipName": "delivery",
+      "relationshipName": "command"
+    }
+  ],
+  "entityTableName": "delivery",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210327165815"
+}

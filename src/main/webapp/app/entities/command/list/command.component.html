@@ -1,0 +1,128 @@
+<div>
+  <h2 id="page-heading" data-cy="CommandHeading">
+    <span jhiTranslate="coopcycleApp.command.home.title">Commands</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="coopcycleApp.command.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-command"
+        [routerLink]="['/command/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="coopcycleApp.command.home.createLabel"> Create a new Command </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="commands?.length === 0">
+    <span jhiTranslate="coopcycleApp.command.home.notFound">No commands found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="commands && commands.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="date"><span jhiTranslate="coopcycleApp.command.date">Date</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="price">
+            <span jhiTranslate="coopcycleApp.command.price">Price</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="state">
+            <span jhiTranslate="coopcycleApp.command.state">State</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="client.id">
+            <span jhiTranslate="coopcycleApp.command.client">Client</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="delivery.id">
+            <span jhiTranslate="coopcycleApp.command.delivery">Delivery</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="restaurant.id">
+            <span jhiTranslate="coopcycleApp.command.restaurant">Restaurant</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let command of commands; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/command', command.id, 'view']">{{ command.id }}</a>
+          </td>
+          <td>{{ command.date | formatMediumDate }}</td>
+          <td>{{ command.price }}</td>
+          <td jhiTranslate="{{ 'coopcycleApp.STATECMD.' + command.state }}">{{ command.state }}</td>
+          <td>
+            <div *ngIf="command.client">
+              <a [routerLink]="['/client', command.client?.id, 'view']">{{ command.client?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="command.delivery">
+              <a [routerLink]="['/delivery', command.delivery?.id, 'view']">{{ command.delivery?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="command.restaurant">
+              <a [routerLink]="['/restaurant', command.restaurant?.id, 'view']">{{ command.restaurant?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/command', command.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/command', command.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(command)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="commands && commands.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

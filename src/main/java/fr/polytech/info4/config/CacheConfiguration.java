@@ -48,6 +48,24 @@ public class CacheConfiguration {
             createCache(cm, fr.polytech.info4.domain.User.class.getName());
             createCache(cm, fr.polytech.info4.domain.Authority.class.getName());
             createCache(cm, fr.polytech.info4.domain.User.class.getName() + ".authorities");
+            createCache(cm, fr.polytech.info4.domain.Client.class.getName());
+            createCache(cm, fr.polytech.info4.domain.Client.class.getName() + ".commands");
+            createCache(cm, fr.polytech.info4.domain.Command.class.getName());
+            createCache(cm, fr.polytech.info4.domain.Command.class.getName() + ".dishes");
+            createCache(cm, fr.polytech.info4.domain.Dish.class.getName());
+            createCache(cm, fr.polytech.info4.domain.Dish.class.getName() + ".commands");
+            createCache(cm, fr.polytech.info4.domain.Restaurant.class.getName());
+            createCache(cm, fr.polytech.info4.domain.Restaurant.class.getName() + ".localCooperatives");
+            createCache(cm, fr.polytech.info4.domain.Restaurant.class.getName() + ".dishes");
+            createCache(cm, fr.polytech.info4.domain.Restaurant.class.getName() + ".commands");
+            createCache(cm, fr.polytech.info4.domain.Delivery.class.getName());
+            createCache(cm, fr.polytech.info4.domain.Delivery.class.getName() + ".commands");
+            createCache(cm, fr.polytech.info4.domain.Deliverer.class.getName());
+            createCache(cm, fr.polytech.info4.domain.Deliverer.class.getName() + ".deliveries");
+            createCache(cm, fr.polytech.info4.domain.NationalCooperative.class.getName());
+            createCache(cm, fr.polytech.info4.domain.NationalCooperative.class.getName() + ".localCooperatives");
+            createCache(cm, fr.polytech.info4.domain.LocalCooperative.class.getName());
+            createCache(cm, fr.polytech.info4.domain.LocalCooperative.class.getName() + ".restaurants");
             // jhipster-needle-ehcache-add-entry
         };
     }

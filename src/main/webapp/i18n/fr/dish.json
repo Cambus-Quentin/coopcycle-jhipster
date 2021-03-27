@@ -1,0 +1,27 @@
+{
+  "coopcycleApp": {
+    "dish": {
+      "home": {
+        "title": "Dishes",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Dish",
+        "createOrEditLabel": "Créer ou éditer un Dish",
+        "notFound": "Aucun Dish trouvé"
+      },
+      "created": "Un nouveau Dish a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Dish avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Dish avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Dish {{ id }} ?"
+      },
+      "detail": {
+        "title": "Dish"
+      },
+      "id": "ID",
+      "name": "Name",
+      "price": "Price",
+      "restaurant": "Restaurant",
+      "command": "Command"
+    }
+  }
+}

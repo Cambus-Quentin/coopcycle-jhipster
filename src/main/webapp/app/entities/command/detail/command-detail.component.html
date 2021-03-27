@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="command">
+      <h2 data-cy="commandDetailsHeading"><span jhiTranslate="coopcycleApp.command.detail.title">Command</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ command.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="coopcycleApp.command.date">Date</span></dt>
+        <dd>
+          <span>{{ command.date | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="coopcycleApp.command.price">Price</span></dt>
+        <dd>
+          <span>{{ command.price }}</span>
+        </dd>
+        <dt><span jhiTranslate="coopcycleApp.command.state">State</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'coopcycleApp.STATECMD.' + command.state }}">{{ command.state }}</span>
+        </dd>
+        <dt><span jhiTranslate="coopcycleApp.command.client">Client</span></dt>
+        <dd>
+          <div *ngIf="command.client">
+            <a [routerLink]="['/client', command.client?.id, 'view']">{{ command.client?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="coopcycleApp.command.delivery">Delivery</span></dt>
+        <dd>
+          <div *ngIf="command.delivery">
+            <a [routerLink]="['/delivery', command.delivery?.id, 'view']">{{ command.delivery?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="coopcycleApp.command.restaurant">Restaurant</span></dt>
+        <dd>
+          <div *ngIf="command.restaurant">
+            <a [routerLink]="['/restaurant', command.restaurant?.id, 'view']">{{ command.restaurant?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="coopcycleApp.command.dish">Dish</span></dt>
+        <dd>
+          <span *ngFor="let dish of command.dishes; let last = last">
+            <a [routerLink]="['/dish', dish?.id, 'view']">{{ dish.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/command', command.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

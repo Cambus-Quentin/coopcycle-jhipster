@@ -1,0 +1,87 @@
+/*
+* Coopcycle JDL
+* (c) 2021, Dorian BARET, INFO4 Polytech Grenoble, Université Grenoble Alpes
+*/
+
+entity Client {
+    name String required minlength(3) 
+    surname String required minlength(3)  
+    address String minlength(3)
+    phoneNumber String 
+    email String unique required minlength(3) maxlength(255)
+    profil Blob
+}
+
+/**
+* Etat de la Command
+*/
+enum STATECMD {
+    PREPARATION,
+    SUPPORTED, 
+    DELIVERY,
+    DELIVERED
+}
+
+entity Command {
+    date LocalDate required
+    price Float required
+    state STATECMD
+}
+
+entity Dish {
+    name String required
+    price Float required
+}
+
+entity Restaurant {
+    name String required minlength(3)
+    address String required minlength(3)
+}
+
+entity Delivery {
+    deliveryAddr String required minlength(3)
+    distance Integer required
+    price Float required
+}
+
+entity Deliverer {
+    name String required
+    firstname String required
+}   
+
+entity NationalCooperative {
+    name String required
+}
+
+entity LocalCooperative {
+    geoZone String required
+}
+
+relationship ManyToOne {
+    LocalCooperative to NationalCooperative
+    Dish to Restaurant
+    Command to Client
+    Command to Delivery
+    Command to Restaurant
+    Delivery to Deliverer
+}
+
+relationship ManyToMany {
+  Command to Dish
+  Restaurant to LocalCooperative
+}
+
+relationship OneToOne {
+  Client to User
+  Deliverer to User
+  Restaurant to User
+}
+
+paginate Client, Command, Delivery, Deliverer, LocalCooperative, NationalCooperative with pagination
+
+paginate Dish, Restaurant with infinite-scroll
+
+dto * with mapstruct
+service * with serviceImpl
+
+filter *

@@ -41,6 +41,8 @@
     "jwtSecretKey": "NDc0M2E4OGU2MzVhNWNkZGRhY2UwMDFmZjM4NGU2ZDczYWQ5YmVkOTlhNmI3YTY1OTgxNTI2NDJjNGI5NDU4Yzk0YWRhNTg3NjRhMjIzNzJlMjIwNzJlMGZhOGI1NzJmMTYzZjEyMDE0ZTY3YjJlODdhNmRkZTIzNTQ4Nzg0MGQ=",
     "clientPackageManager": "npm",
     "clientThemeVariant": "",
-    "languages": ["fr", "en"]
+    "languages": ["fr", "en"],
+    "entities": ["Client", "Command", "Dish", "Restaurant", "Delivery", "Deliverer", "NationalCooperative", "LocalCooperative"],
+    "lastLiquibaseTimestamp": 1616864298000
   }
 }

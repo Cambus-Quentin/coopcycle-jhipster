@@ -1,0 +1,27 @@
+{
+  "coopcycleApp": {
+    "deliverer": {
+      "home": {
+        "title": "Deliverers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Deliverer",
+        "createOrEditLabel": "Create or edit a Deliverer",
+        "notFound": "No Deliverers found"
+      },
+      "created": "A new Deliverer is created with identifier {{ param }}",
+      "updated": "A Deliverer is updated with identifier {{ param }}",
+      "deleted": "A Deliverer is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Deliverer {{ id }}?"
+      },
+      "detail": {
+        "title": "Deliverer"
+      },
+      "id": "ID",
+      "name": "Name",
+      "firstname": "Firstname",
+      "user": "User",
+      "delivery": "Delivery"
+    }
+  }
+}

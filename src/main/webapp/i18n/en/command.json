@@ -1,0 +1,30 @@
+{
+  "coopcycleApp": {
+    "command": {
+      "home": {
+        "title": "Commands",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Command",
+        "createOrEditLabel": "Create or edit a Command",
+        "notFound": "No Commands found"
+      },
+      "created": "A new Command is created with identifier {{ param }}",
+      "updated": "A Command is updated with identifier {{ param }}",
+      "deleted": "A Command is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Command {{ id }}?"
+      },
+      "detail": {
+        "title": "Command"
+      },
+      "id": "ID",
+      "date": "Date",
+      "price": "Price",
+      "state": "State",
+      "client": "Client",
+      "delivery": "Delivery",
+      "restaurant": "Restaurant",
+      "dish": "Dish"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity LocalCooperative.
+    -->
+    <changeSet id="20210327165818-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="national_cooperative_id"
+                                 baseTableName="local_cooperative"
+                                 constraintName="fk_local_cooperative__national_cooperative_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="national_cooperative"/>
+
+    </changeSet>
+</databaseChangeLog>

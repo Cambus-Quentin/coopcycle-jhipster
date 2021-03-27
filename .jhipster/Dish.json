@@ -1,0 +1,40 @@
+{
+  "name": "Dish",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "restaurant",
+      "otherEntityRelationshipName": "dish",
+      "relationshipName": "restaurant"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "command",
+      "otherEntityRelationshipName": "dish",
+      "relationshipName": "command",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "dish",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210327165813"
+}

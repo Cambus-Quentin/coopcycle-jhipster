@@ -1,0 +1,28 @@
+{
+  "name": "NationalCooperative",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "localCooperative",
+      "otherEntityRelationshipName": "nationalCooperative",
+      "relationshipName": "localCooperative"
+    }
+  ],
+  "entityTableName": "national_cooperative",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210327165817"
+}

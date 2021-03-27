@@ -1,0 +1,26 @@
+{
+  "coopcycleApp": {
+    "localCooperative": {
+      "home": {
+        "title": "Local Cooperatives",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Local Cooperative",
+        "createOrEditLabel": "Create or edit a Local Cooperative",
+        "notFound": "No Local Cooperatives found"
+      },
+      "created": "A new Local Cooperative is created with identifier {{ param }}",
+      "updated": "A Local Cooperative is updated with identifier {{ param }}",
+      "deleted": "A Local Cooperative is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Local Cooperative {{ id }}?"
+      },
+      "detail": {
+        "title": "Local Cooperative"
+      },
+      "id": "ID",
+      "geoZone": "Geo Zone",
+      "nationalCooperative": "National Cooperative",
+      "restaurant": "Restaurant"
+    }
+  }
+}

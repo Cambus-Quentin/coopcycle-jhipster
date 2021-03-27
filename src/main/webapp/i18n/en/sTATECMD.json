@@ -1,0 +1,11 @@
+{
+  "coopcycleApp": {
+    "STATECMD": {
+      "null": "",
+      "PREPARATION": "PREPARATION",
+      "SUPPORTED": "SUPPORTED",
+      "DELIVERY": "DELIVERY",
+      "DELIVERED": "DELIVERED"
+    }
+  }
+}

@@ -161,13 +161,13 @@ jhipster:
     management-include-pattern: ${server.servlet.context-path:}/management/.*
     title: coopcycle API
     description: coopcycle API documentation
-    version: 0.0.1
-    terms-of-service-url:
-    contact-name:
-    contact-url:
-    contact-email:
-    license: unlicensed
-    license-url:
+    version: 0.3.1
+    terms-of-service-url: https://coopcycle.com/api/term-of-service
+    contact-name: Jhon Bales
+    contact-url: https://coopcycle.com/api/contact
+    contact-email: contact-api@coopcycle.com
+    license: licensed
+    license-url: https://coopcycle.com/api/license
 # ===================================================================
 # Application specific properties
 # Add your own application properties here, see the ApplicationProperties class
